@@ -13,7 +13,11 @@
 		0975681D1F61961200A6BBB6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0975681B1F61961200A6BBB6 /* LaunchScreen.storyboard */; };
 		097568281F61961200A6BBB6 /* facebookFeedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097568271F61961200A6BBB6 /* facebookFeedTests.swift */; };
 		097568331F61961200A6BBB6 /* facebookFeedUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097568321F61961200A6BBB6 /* facebookFeedUITests.swift */; };
-		097568461F61A11200A6BBB6 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097568451F61A11200A6BBB6 /* CollectionViewCell.swift */; };
+		097568461F61A11200A6BBB6 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097568451F61A11200A6BBB6 /* FeedCell.swift */; };
+		0975684A1F61D53E00A6BBB6 /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097568491F61D53E00A6BBB6 /* Constraints.swift */; };
+		0975684C1F61E19600A6BBB6 /* RGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0975684B1F61E19600A6BBB6 /* RGB.swift */; };
+		0975684E1F61FE6500A6BBB6 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0975684D1F61FE6500A6BBB6 /* Post.swift */; };
+		097568501F62387400A6BBB6 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0975684F1F62387400A6BBB6 /* CustomTabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,7 +50,11 @@
 		0975682E1F61961200A6BBB6 /* facebookFeedUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = facebookFeedUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		097568321F61961200A6BBB6 /* facebookFeedUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = facebookFeedUITests.swift; sourceTree = "<group>"; };
 		097568341F61961200A6BBB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		097568451F61A11200A6BBB6 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		097568451F61A11200A6BBB6 /* FeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
+		097568491F61D53E00A6BBB6 /* Constraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
+		0975684B1F61E19600A6BBB6 /* RGB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGB.swift; sourceTree = "<group>"; };
+		0975684D1F61FE6500A6BBB6 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		0975684F1F62387400A6BBB6 /* CustomTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +109,7 @@
 				097568411F6197E300A6BBB6 /* Model */,
 				097568421F6197EA00A6BBB6 /* View */,
 				097568401F6197D900A6BBB6 /* Controller */,
+				097568481F61B07000A6BBB6 /* Extensions */,
 				097568441F6197FD00A6BBB6 /* Utilities */,
 				097568431F6197F400A6BBB6 /* Resources */,
 			);
@@ -129,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				097568141F61961200A6BBB6 /* FeedController.swift */,
+				0975684F1F62387400A6BBB6 /* CustomTabBarController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -136,6 +146,7 @@
 		097568411F6197E300A6BBB6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0975684D1F61FE6500A6BBB6 /* Post.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -144,7 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				0975681B1F61961200A6BBB6 /* LaunchScreen.storyboard */,
-				097568451F61A11200A6BBB6 /* CollectionViewCell.swift */,
+				097568451F61A11200A6BBB6 /* FeedCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -171,6 +182,15 @@
 				097568121F61961200A6BBB6 /* AppDelegate.swift */,
 			);
 			name = AppDelegate;
+			sourceTree = "<group>";
+		};
+		097568481F61B07000A6BBB6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				097568491F61D53E00A6BBB6 /* Constraints.swift */,
+				0975684B1F61E19600A6BBB6 /* RGB.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -309,9 +329,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0975684C1F61E19600A6BBB6 /* RGB.swift in Sources */,
+				097568501F62387400A6BBB6 /* CustomTabBarController.swift in Sources */,
+				0975684E1F61FE6500A6BBB6 /* Post.swift in Sources */,
+				0975684A1F61D53E00A6BBB6 /* Constraints.swift in Sources */,
 				097568151F61961200A6BBB6 /* FeedController.swift in Sources */,
 				097568131F61961200A6BBB6 /* AppDelegate.swift in Sources */,
-				097568461F61A11200A6BBB6 /* CollectionViewCell.swift in Sources */,
+				097568461F61A11200A6BBB6 /* FeedCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -554,6 +578,7 @@
 				097568391F61961200A6BBB6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0975683A1F61961200A6BBB6 /* Build configuration list for PBXNativeTarget "facebookFeedTests" */ = {
 			isa = XCConfigurationList;
@@ -562,6 +587,7 @@
 				0975683C1F61961200A6BBB6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0975683D1F61961200A6BBB6 /* Build configuration list for PBXNativeTarget "facebookFeedUITests" */ = {
 			isa = XCConfigurationList;
@@ -570,6 +596,7 @@
 				0975683F1F61961200A6BBB6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

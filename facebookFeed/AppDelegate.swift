@@ -21,13 +21,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         
         // Assign view controller
-        let feedController = UICollectionViewFlowLayout()
-        let navigationController = FeedController(collectionViewLayout: feedController)
-        
-        window?.rootViewController = UINavigationController(rootViewController: navigationController)
+        window?.rootViewController = CustomTabBarController()
         
         // Nav bar appearance
         UINavigationBar.appearance().barTintColor = UIColor(red: 51/255, green: 90/255, blue: 149/255, alpha: 1)
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        application.statusBarStyle = .lightContent
         
         // Override point for customization after application launch.
         return true
