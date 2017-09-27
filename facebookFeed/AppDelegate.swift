@@ -23,6 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Assign view controller
         window?.rootViewController = CustomTabBarController()
         
+        UITabBar.appearance().tintColor = UIColor.rgb(red: 70, green: 146, blue: 250)
+        
         // Nav bar appearance
         UINavigationBar.appearance().barTintColor = UIColor(red: 51/255, green: 90/255, blue: 149/255, alpha: 1)
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]

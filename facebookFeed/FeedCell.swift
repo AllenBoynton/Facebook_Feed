@@ -10,6 +10,13 @@ import UIKit
 
 class FeedCell: UICollectionViewCell {
     
+    // VC Delegate
+    var feedController: FeedController?
+    
+    func animate() {
+        feedController?.animateImageView(statusImageView: statusImageView)
+    }
+    
     var post: Post? {
         didSet {
             
@@ -24,9 +31,9 @@ class FeedCell: UICollectionViewCell {
                     
                     DispatchQueue.main.async(execute: { () -> Void in
                         self.statusImageView.image = image
-                        //                            self.loader.stopAnimating()
                     })
                 }).resume()
+                
             } else {
                 if let statusImage = post?.statusImage {
                     statusImageView.image = UIImage(named: statusImage)
@@ -83,7 +90,7 @@ class FeedCell: UICollectionViewCell {
     
     let profileImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.layer.cornerRadius = imageView.frame.size.width / 2
+        imageView.layer.cornerRadius = imageView.frame.size.height / 2
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFit
         return imageView
@@ -108,6 +115,7 @@ class FeedCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.layer.masksToBounds = true
+        imageView.isUserInteractionEnabled = true
         return imageView
     }()
     
@@ -156,6 +164,8 @@ class FeedCell: UICollectionViewCell {
         addSubview(likeButton)
         addSubview(commentButton)
         addSubview(shareButton)
+        
+        statusImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(FeedCell.animate as (FeedCell) -> () -> ())))
         
         // Add Horizontal constraints using extension UIView
         addConstraintsWithFormat(format: "H:|-8-[v0(44)]-8-[v1][v2(30)]-8-|", views: profileImageView, nameLabel, optionsButton)

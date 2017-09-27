@@ -15,6 +15,7 @@ class CustomTabBarController: UITabBarController {
 
         // Sets the default color of the background of the UITabBar
         UITabBar.appearance().barTintColor = UIColor.white
+        tabBar.isTranslucent = false
         
         // Assign view controller
         let feedController = FeedController(collectionViewLayout: UICollectionViewFlowLayout())
@@ -22,27 +23,33 @@ class CustomTabBarController: UITabBarController {
         navigationController.title = "News Feed"
         navigationController.tabBarItem.image = UIImage(named: "feed")
         
-        let videoController = UIViewController()
-        let secondNavigationController = UINavigationController(rootViewController: videoController)
-        secondNavigationController.title = "Video"
-        secondNavigationController.tabBarItem.image = UIImage(named: "video")
+        let friendRequestsController = FriendRequestsController()
+        let secondNavigationController = UINavigationController(rootViewController: friendRequestsController)
+        secondNavigationController.title = "Requests"
+        secondNavigationController.tabBarItem.image = UIImage(named: "requests_icon")
         
-        let marketController = UIViewController()
-        let thirdNavigationController = UINavigationController(rootViewController: marketController)
-        thirdNavigationController.title = "Market"
-        thirdNavigationController.tabBarItem.image = UIImage(named: "market")
+        let messengerController = MessengerController()
+        let thirdNavigationController = UINavigationController(rootViewController: messengerController)
+        thirdNavigationController.title = "Messenger"
+        thirdNavigationController.tabBarItem.image = UIImage(named: "messenger_icon")
         
-        let notifController = UIViewController()
+        let notifController = NotifController()
         let forthNavigationController = UINavigationController(rootViewController: notifController)
         forthNavigationController.title = "Notifications"
-        forthNavigationController.tabBarItem.image = UIImage(named: "notification")
+        forthNavigationController.tabBarItem.image = UIImage(named: "globe_small")
         
-        let menuController = UIViewController()
+        let menuController = MenuController()
         let fifthNavigationController = UINavigationController(rootViewController: menuController)
-        fifthNavigationController.title = "Menu"
-        fifthNavigationController.tabBarItem.image = UIImage(named: "menu")
+        fifthNavigationController.title = "More"
+        fifthNavigationController.tabBarItem.image = UIImage(named: "more_icon")
         
         viewControllers = [navigationController, secondNavigationController, thirdNavigationController, forthNavigationController, fifthNavigationController]
+        
+        let topBorder = CALayer()
+        topBorder.frame = CGRect(x: 0, y: 0, width: 1000, height: 0.5)
+        topBorder.backgroundColor = UIColor.rgb(red: 229, green: 231, blue: 235).cgColor
+        
+        tabBar.layer.addSublayer(topBorder)
+        tabBar.clipsToBounds = true
     }
-
 }

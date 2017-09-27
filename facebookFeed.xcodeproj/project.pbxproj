@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		090057CD1F62F5B9002624B7 /* OtherViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090057CC1F62F5B9002624B7 /* OtherViewControllers.swift */; };
+		090057CF1F62F921002624B7 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090057CE1F62F921002624B7 /* Location.swift */; };
+		090057D11F62FF21002624B7 /* FriendRequestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090057D01F62FF21002624B7 /* FriendRequestCell.swift */; };
+		090057D31F632AD8002624B7 /* RequestHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090057D21F632AD8002624B7 /* RequestHeader.swift */; };
 		097568131F61961200A6BBB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097568121F61961200A6BBB6 /* AppDelegate.swift */; };
 		097568151F61961200A6BBB6 /* FeedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097568141F61961200A6BBB6 /* FeedController.swift */; };
 		0975681A1F61961200A6BBB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 097568191F61961200A6BBB6 /* Assets.xcassets */; };
@@ -38,6 +42,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		090057CC1F62F5B9002624B7 /* OtherViewControllers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherViewControllers.swift; sourceTree = "<group>"; };
+		090057CE1F62F921002624B7 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		090057D01F62FF21002624B7 /* FriendRequestCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendRequestCell.swift; sourceTree = "<group>"; };
+		090057D21F632AD8002624B7 /* RequestHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestHeader.swift; sourceTree = "<group>"; };
 		0975680F1F61961200A6BBB6 /* facebookFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = facebookFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		097568121F61961200A6BBB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		097568141F61961200A6BBB6 /* FeedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedController.swift; sourceTree = "<group>"; };
@@ -139,6 +147,7 @@
 			children = (
 				097568141F61961200A6BBB6 /* FeedController.swift */,
 				0975684F1F62387400A6BBB6 /* CustomTabBarController.swift */,
+				090057CC1F62F5B9002624B7 /* OtherViewControllers.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -147,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				0975684D1F61FE6500A6BBB6 /* Post.swift */,
+				090057CE1F62F921002624B7 /* Location.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -156,6 +166,8 @@
 			children = (
 				0975681B1F61961200A6BBB6 /* LaunchScreen.storyboard */,
 				097568451F61A11200A6BBB6 /* FeedCell.swift */,
+				090057D01F62FF21002624B7 /* FriendRequestCell.swift */,
+				090057D21F632AD8002624B7 /* RequestHeader.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -330,8 +342,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				0975684C1F61E19600A6BBB6 /* RGB.swift in Sources */,
+				090057CD1F62F5B9002624B7 /* OtherViewControllers.swift in Sources */,
 				097568501F62387400A6BBB6 /* CustomTabBarController.swift in Sources */,
 				0975684E1F61FE6500A6BBB6 /* Post.swift in Sources */,
+				090057CF1F62F921002624B7 /* Location.swift in Sources */,
+				090057D11F62FF21002624B7 /* FriendRequestCell.swift in Sources */,
+				090057D31F632AD8002624B7 /* RequestHeader.swift in Sources */,
 				0975684A1F61D53E00A6BBB6 /* Constraints.swift in Sources */,
 				097568151F61961200A6BBB6 /* FeedController.swift in Sources */,
 				097568131F61961200A6BBB6 /* AppDelegate.swift in Sources */,

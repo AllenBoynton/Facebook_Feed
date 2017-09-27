@@ -25,7 +25,7 @@ class FeedController: UICollectionViewController, UICollectionViewDelegateFlowLa
         postMark.statusImage = "zuck_feed"
         postMark.numLikes = 400
         postMark.numComments = 123
-        postMark.statusImageUrl = "https://fm.cnbc.com/applications/cnbc.com/resources/img/editorial/2017/05/26/104494876-GettyImages-688402250-mark-zuckerberg-harvard.1910x1000.jpg"
+        postMark.statusImageUrl = "http://i.huffpost.com/gen/3798534/images/o-STARWARS-facebook.jpg"
         
         let postSteve = Post()
         postSteve.name = "Steve Jobs"
@@ -78,6 +78,7 @@ class FeedController: UICollectionViewController, UICollectionViewDelegateFlowLa
         let customCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! FeedCell
         
         customCell.post = post[indexPath.item] // Returns all the elements of the cell post
+        customCell.feedController = self
         
         return customCell
     }
@@ -105,5 +106,86 @@ class FeedController: UICollectionViewController, UICollectionViewDelegateFlowLa
         super.viewWillTransition(to: size, with: coordinator)
         
         collectionView?.collectionViewLayout.invalidateLayout()
+    }
+    
+    let blackBackground = UIView()
+    let zoomImageView = UIImageView()
+    let navBarCoverView = UIView()
+    let tabBarCoverView = UIView()
+    
+    var statusImageView: UIImageView?
+    
+    func animateImageView(statusImageView: UIImageView) {
+        self.statusImageView = statusImageView
+        
+        if let startingFrame = statusImageView.superview?.convert(statusImageView.frame, to: nil) {
+            
+            statusImageView.alpha = 0
+            
+            blackBackground.frame = self.view.frame
+            self.blackBackground.backgroundColor = UIColor.black
+            blackBackground.alpha = 0
+            view.addSubview(blackBackground)
+            
+            let width = self.view.frame.width
+            navBarCoverView.frame = CGRect(x: 0, y: 0, width: width, height: 20 + 44)
+            navBarCoverView.backgroundColor = UIColor.black
+            navBarCoverView.alpha = 0
+            
+            // Allows the nav bar area to be covered
+            if let keyWindow = UIApplication.shared.keyWindow {
+                keyWindow.addSubview(navBarCoverView)
+                
+                tabBarCoverView.frame = CGRect(x: 0, y: keyWindow.frame.height - 49, width: width, height: 49)
+                tabBarCoverView.backgroundColor = UIColor.black
+                tabBarCoverView.alpha = 0
+                keyWindow.addSubview(tabBarCoverView)
+            }
+            
+            zoomImageView.backgroundColor = UIColor.red
+            zoomImageView.frame = startingFrame
+            zoomImageView.isUserInteractionEnabled = true
+            zoomImageView.image = statusImageView.image
+            zoomImageView.contentMode = .scaleAspectFill
+            zoomImageView.clipsToBounds = true
+            view.addSubview(zoomImageView)
+            
+            zoomImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(FeedController.zoomOut)))
+            
+            UIView.animate(withDuration: 0.75, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0.5, options: .curveEaseOut, animations: {
+                
+                let height = (self.view.frame.width / startingFrame.width) * startingFrame.height
+                
+                let y = self.view.frame.height / 2 - height / 2
+                
+                self.zoomImageView.frame = CGRect(x: 0, y: y, width: self.view.frame.width, height: height)
+                
+                self.blackBackground.alpha = 0.9
+                self.navBarCoverView.alpha = 0.9
+                self.tabBarCoverView.alpha = 0.9
+                
+            }, completion: nil)
+        }
+    }
+    
+    func zoomOut() {
+        if let startingFrame = statusImageView!.superview?.convert(statusImageView!.frame, to: nil) {
+            UIView.animate(withDuration: 0.5, animations: { () -> Void in
+                self.zoomImageView.frame = startingFrame
+                
+                self.blackBackground.alpha = 0
+                self.navBarCoverView.alpha = 0
+                self.tabBarCoverView.alpha = 0
+                
+            }, completion: { (didComplete) -> Void in
+                
+                self.zoomImageView.removeFromSuperview()
+                self.blackBackground.removeFromSuperview()
+                self.navBarCoverView.removeFromSuperview()
+                self.tabBarCoverView.removeFromSuperview()
+                
+                self.statusImageView?.alpha = 1
+            })
+        }
     }
 }
